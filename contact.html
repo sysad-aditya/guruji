@@ -26,15 +26,16 @@
         <section class="contact-section">
             <h3 class="contact-heading">Get In Touch</h3>
             <form id="contactForm">
-  <input type="text" name="name" placeholder="Name" required>
-  <input type="email" name="email" placeholder="Email" required>
+  <input type="text" name="name" placeholder="Your Name" required>
+  <input type="email" name="email" placeholder="Your Email" required>
   <input type="text" name="subject" placeholder="Subject" required>
-  <textarea name="message" placeholder="Your Message" required></textarea>
+  <textarea name="message" placeholder="Message" required></textarea>
   <button type="submit">Send</button>
 </form>
 <p id="status"></p>
 
 <script>
+  const scriptURL = 'https://script.google.com/macros/s/AKfycbwuz4JZLyGtgGCyB8d2oB13uVddXwGJabh9IqQ7_VfPDd9pWMAgU9ymLbpNHu301vp4/exec';
   const form = document.getElementById('contactForm');
   const status = document.getElementById('status');
 
@@ -44,21 +45,22 @@
 
     const formData = new FormData(form);
 
-    fetch('https://script.google.com/macros/s/AKfycbwuz4JZLyGtgGCyB8d2oB13uVddXwGJabh9IqQ7_VfPDd9pWMAgU9ymLbpNHu301vp4/exec', {
+    fetch(scriptURL, {
       method: 'POST',
       body: formData,
     })
-    .then(res => res.json())
+    .then(response => response.json())
     .then(data => {
       status.textContent = "Message sent successfully!";
       form.reset();
     })
-    .catch(err => {
-      console.error("Fetch error:", err);
+    .catch(error => {
+      console.error('Error!', error);
       status.textContent = "Something went wrong.";
     });
   });
 </script>
+
 
         </section>
 
