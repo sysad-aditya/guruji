@@ -43,30 +43,37 @@
             <p id="status"></p>
 
             <script>
-                const scriptURL = "https://script.google.com/macros/s/AKfycbx9032qPAUDonIb0UJXfa2056U4wBDk_PtY-k4gp8pn7IiLXXad5GXLtLWqNoscP9uc/exec";
-const form = document.getElementById("contactForm");
-const status = document.getElementById("status");
+  const scriptURL = "https://script.google.com/macros/s/AKfycbwuz4JZLyGtgGCyB8d2oB13uVddXwGJabh9IqQ7_VfPDd9pWMAgU9ymLbpNHu301vp4/exec";
+  const form = document.getElementById("contactForm");
+  const status = document.getElementById("status");
 
-form.addEventListener("submit", function (e) {
-  e.preventDefault();
-  status.textContent = "Sending...";
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    status.textContent = "Sending...";
 
-  fetch(scriptURL, {
-    method: "POST",
-    body: new FormData(form),
-    mode: "cors", // ✅ this must be here
-  })
-  .then(response => response.json())
-  .then(data => {
-    status.textContent = "Message sent successfully!";
-    form.reset();
-  })
-  .catch(error => {
-    console.error("Error!", error);
-    status.textContent = "Something went wrong.";
+    const formData = new FormData(form);
+
+    fetch(scriptURL, {
+      method: "POST",
+      body: formData,
+    })
+    .then(response => response.json())
+    .then(data => {
+      if (data.success) {
+        status.textContent = "Message sent successfully!";
+        form.reset();
+      } else {
+        status.textContent = "Failed to send message.";
+        console.error("Server error:", data.error);
+      }
+    })
+    .catch(error => {
+      console.error("Fetch error!", error);
+      status.textContent = "Something went wrong.";
+    });
   });
-});
-            </script>
+</script>
+
         </section>
 
         <section class="contact-section">
