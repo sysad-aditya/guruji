@@ -43,31 +43,29 @@
             <p id="status"></p>
 
             <script>
-                const scriptURL = "https://script.google.com/macros/s/AKfycbx9032qPAUDonIb0UJXfa2056U4wBDk_PtY-k4gp8pn7IiLXXad5GXLtLWqNoscP9uc/exec"; // Replace with your Script URL
-                const form = document.getElementById("contactForm");
-                const status = document.getElementById("status");
+                const scriptURL = "https://script.google.com/macros/s/AKfycbx9032qPAUDonIb0UJXfa2056U4wBDk_PtY-k4gp8pn7IiLXXad5GXLtLWqNoscP9uc/exec";
+const form = document.getElementById("contactForm");
+const status = document.getElementById("status");
 
-                form.addEventListener("submit", function (e) {
-                    e.preventDefault();
-                    status.textContent = "Sending...";
+form.addEventListener("submit", function (e) {
+  e.preventDefault();
+  status.textContent = "Sending...";
 
-                    const formData = new FormData(form);
-
-                    fetch(scriptURL, {
-  method: "POST",
-  mode: "cors", // ✅ Enable CORS mode
-  body: new FormData(form)
-})
-.then(response => response.json())
-.then(data => {
-  status.textContent = "Message sent successfully!";
-  form.reset();
-})
-.catch(error => {
-  console.error("Error!", error);
-  status.textContent = "Something went wrong.";
+  fetch(scriptURL, {
+    method: "POST",
+    body: new FormData(form),
+    mode: "cors", // ✅ this must be here
+  })
+  .then(response => response.json())
+  .then(data => {
+    status.textContent = "Message sent successfully!";
+    form.reset();
+  })
+  .catch(error => {
+    console.error("Error!", error);
+    status.textContent = "Something went wrong.";
+  });
 });
-                });
             </script>
         </section>
 
