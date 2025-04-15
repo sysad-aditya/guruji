@@ -1,27 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contact - Astrology Guru</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+<div id="head-placeholder"></div>
+
+<script>
+  fetch("head.html")
+    .then(res => res.text())
+    .then(data => document.getElementById("head-placeholder").innerHTML = data);
+</script>
 </head>
 <body>
-  <header>
-    <h1>Astrology by Guru Ji</h1>
-    <p>Unlock your destiny with a personalized birth chart</p>
-  </header>
+  
+<div id="header-placeholder"></div>
 
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="services.html">Services</a>
-    <a href="contact.html">Contact</a>
-    <a href="testimonials.html">Testimonials</a>
-    <a href="faq.html">FAQs</a>
-    <a href="privacy.html">Privacy Policy</a>
-  </nav>
+<script>
+  fetch("header.html")
+    .then(res => res.text())
+    .then(data => document.getElementById("header-placeholder").innerHTML = data);
+</script>
 
   <div class="container">
     <h2>Contact Us</h2>
@@ -29,7 +25,7 @@
 
     <section class="contact-section">
       <h3 class="contact-heading">Get In Touch</h3>
-      <form action="mailto:your-email@example.com" method="post" enctype="text/plain">
+      <form action="mailto:sysad.snu@gmail.com" method="post" enctype="text/plain">
         <label for="name">Full Name:</label>
         <input type="text" id="name" name="name" required />
 
@@ -51,24 +47,19 @@
       <p>If you'd prefer to reach us directly, here are our contact details:</p>
       <ul>
         <li><strong>Phone:</strong> +91 814 922 4462</li>
-        <li><strong>Email:</strong> <a href="mailto:test@test.com">test@test.com</a></li>
+        <li><strong>Email:</strong> <a href="mailto:sysad.snu@gmail.com">sysad.snu@gmail.com</a></li>
         <li><strong>Address:</strong> Guru Astrology, 123 Main Road, Ranchi, Jharkhand, India</li>
       </ul>
     </section>
 </div>
 
-<nav2>
-    <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="services.html">Services</a>
-    <a href="contact.html">Contact</a>
-    <a href="testimonials.html">Testimonials</a>
-    <a href="faq.html">FAQs</a>
-    <a href="privacy.html">Privacy Policy</a>
-  </nav2>
-    <footer>
-      <p>&copy; 2025 Astrology by Guru Ji. All rights reserved.</p>
-    </footer>
+<div id="bottom-placeholder"></div>
+
+<script>
+  fetch("bottom.html")
+    .then(res => res.text())
+    .then(data => document.getElementById("bottom-placeholder").innerHTML = data);
+</script>
   
 </body>
 </html>

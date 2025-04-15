@@ -1,31 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>About Us - Astrology Guru</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+<div id="head-placeholder"></div>
+
+<script>
+  fetch("head.html")
+    .then(res => res.text())
+    .then(data => document.getElementById("head-placeholder").innerHTML = data);
+</script>
 </head>
 <body>
-  <header>
-    <h1>Astrology by Guru Ji</h1>
-    <p>Unlock your destiny with a personalized birth chart</p>
-  </header>
+  
+<div id="header-placeholder"></div>
 
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="services.html">Services</a>
-    <a href="contact.html">Contact</a>
-    <a href="testimonials.html">Testimonials</a>
-    <a href="faq.html">FAQs</a>
-    <a href="privacy.html">Privacy Policy</a>
-  </nav>
+<script>
+  fetch("header.html")
+    .then(res => res.text())
+    .then(data => document.getElementById("header-placeholder").innerHTML = data);
+</script>
 
   <div class="container">
-    <h2>About Astrology by Guru Ji</h2>
-    <p>Welcome to Astrology by Guru Ji, where we help you unlock the mysteries of your destiny through personalized and in-depth astrology readings.</p>
+    <h2>About Krishna Astrology</h2>
+    <p>Welcome to Krishna Astrology, where we help you unlock the mysteries of your destiny through personalized and in-depth astrology readings.</p>
 
     <section class="about-section">
       <h3>Our Mission</h3>
@@ -34,12 +30,12 @@
 
     <section class="about-section">
       <h3>Our Story</h3>
-      <p>Founded by Guru Ji, a highly skilled and experienced astrologer with over 20 years of practice, our goal is to help people navigate life's challenges and embrace the positive influences of the stars. With a deep understanding of Vedic astrology, Guru Ji provides timeless wisdom that continues to inspire and transform lives.</p>
+      <p>Founded by Krishna Guru Ji, a highly skilled and experienced astrologer with over 20 years of practice, our goal is to help people navigate life's challenges and embrace the positive influences of the stars. With a deep understanding of Vedic astrology, Guru Ji provides timeless wisdom that continues to inspire and transform lives.</p>
     </section>
 
     <section class="about-section">
       <h3>Meet Guru Ji</h3>
-      <p>Guru Ji is a renowned astrologer with a rich background in both traditional and modern astrology. Having learned under the guidance of ancient masters, Guru Ji now shares this profound knowledge to help people achieve harmony and balance in their lives. With a compassionate approach, Guru Ji takes great pride in delivering astrology readings that are tailored to each individual's needs.</p>
+      <p>Krishna Guru Ji is a renowned astrologer with a rich background in both traditional and modern astrology. Having learned under the guidance of ancient masters, Guru Ji now shares this profound knowledge to help people achieve harmony and balance in their lives. With a compassionate approach, Guru Ji takes great pride in delivering astrology readings that are tailored to each individual's needs.</p>
     </section>
 
     <section class="about-section">
@@ -54,7 +50,7 @@
 
     <section class="about-section">
       <h3>Why Choose Us?</h3>
-      <p>At Astrology by Guru Ji, we stand out by offering:</p>
+      <p>At Krishna Astrology, we stand out by offering:</p>
       <ul>
         <li>Comprehensive birth chart analysis with detailed insights</li>
         <li>Expert advice based on Vedic astrology techniques</li>
@@ -63,19 +59,14 @@
       </ul>
     </section>
 </div>
-<nav2>
-    <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="services.html">Services</a>
-    <a href="contact.html">Contact</a>
-    <a href="testimonials.html">Testimonials</a>
-    <a href="faq.html">FAQs</a>
-    <a href="privacy.html">Privacy Policy</a>
-  </nav2>
+<div id="bottom-placeholder"></div>
 
-    <footer>
-      <p>&copy; 2025 Astrology by Guru Ji. All rights reserved.</p>
-    </footer>
+<script>
+  fetch("bottom.html")
+    .then(res => res.text())
+    .then(data => document.getElementById("bottom-placeholder").innerHTML = data);
+</script>
+
   
 </body>
 </html>
