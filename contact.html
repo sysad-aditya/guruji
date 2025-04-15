@@ -43,7 +43,7 @@
             <p id="status"></p>
 
             <script>
-                const scriptURL = "https://script.google.com/macros/s/AKfycbzGHFkZOon6fPa2jMU_h69sauQTr06DDxwv7VVyYdf9y2ljBuaEcYO0FXJsIdZxfUd7/exec"; // Replace with your Script URL
+                const scriptURL = "https://script.google.com/macros/s/AKfycbx9032qPAUDonIb0UJXfa2056U4wBDk_PtY-k4gp8pn7IiLXXad5GXLtLWqNoscP9uc/exec"; // Replace with your Script URL
                 const form = document.getElementById("contactForm");
                 const status = document.getElementById("status");
 
@@ -54,19 +54,19 @@
                     const formData = new FormData(form);
 
                     fetch(scriptURL, {
-                        method: "POST",
-                        mode: "no-cors",
-                        body: new FormData(form),
-                    })
-                    .then(response => response.json())
-                    .then(data => {
-                        status.textContent = "Message sent successfully!";
-                        form.reset();
-                    })
-                    .catch(error => {
-                        console.error("Error!", error.message);
-                        status.textContent = "Something went wrong.";
-                    });
+  method: "POST",
+  mode: "cors", // ✅ Enable CORS mode
+  body: new FormData(form)
+})
+.then(response => response.json())
+.then(data => {
+  status.textContent = "Message sent successfully!";
+  form.reset();
+})
+.catch(error => {
+  console.error("Error!", error);
+  status.textContent = "Something went wrong.";
+});
                 });
             </script>
         </section>
