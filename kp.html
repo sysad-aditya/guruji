@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Contact Us</title>
+  <title>Krishnamurti Paddhati</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <div id="head-placeholder"></div>
   <script>
@@ -67,7 +67,12 @@
       <p id="thanksMsg" style="display:none; color:green; font-weight:bold; margin-top:10px;">
         ✅ Message sent successfully!
       </p>
-
+<script>
+  // Set a timeout to hide the <p> element after 5 seconds
+  setTimeout(function() {
+    document.getElementById('thanksMsg').style.display = 'none';
+  }, 5000);
+</script>
       <script>
         let submitted = false;
       </script>
