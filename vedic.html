@@ -21,28 +21,22 @@
   </script>
 
    <div class="container">
-    <h2>Ask a Horary Question</h2>
-    <form action="https://script.google.com/macros/s/AKfycbwQ_S3bpaW7MlcSpoNkJuxYutSBict8eOMUq2tmAjEXXbQbwo8j6APPqCSLxvNB1_DF/exec" 
+
+<h3>Request Your Birth Chart</h3>
+    <form action="https://script.google.com/macros/s/AKfycbz8Swy1wFmffNWHrZ5H3_p3cfDHr10O8TyrjtcA56sqY1_R73Nj5DiZRjXO8k-N-BaDJg/exec" 
             method="POST" target="hidden_iframe" onsubmit="submitted=true;">
       <label for="name">Full Name:</label>
-        <input type="text" name="name" required />
+      <input type="text" id="name" name="name" required />
 
-        <label for="email">Email Address:</label>
-        <input type="email" name="email" required />
+      <label for="dob">Date of Birth:</label>
+      <input type="date" id="dob" name="dob" required />
 
-        <label for="subject">Question:</label>
-        <input type="text" name="question" required />
+      <label for="tob">Time of Birth:</label>
+      <input type="time" id="tob" name="tob" required />
 
-      <label for="horary">Horary Number (1 to 249):</label>
-      <select id="horary" name="horary" required>
-        <option value="">Select a number</option>
-        <!-- Generate 1-249 options -->
-        <script>
-          for (let i = 1; i <= 249; i++) {
-            document.write(`<option value="${i}">${i}</option>`);
-          }
-        </script>
-      </select>
+      <label for="pob">Place of Birth:</label>
+      <input type="text" id="pob" name="pob" required />
+
       <div class="payment">
       <h3>Payment Instructions</h3>
       <p>Please make a payment of Rs. 299 via UPI or Bank Transfer:</p>
@@ -55,12 +49,12 @@
       </ul>
       <p>After payment, please provide the UTR Number below:</p>
       </div>
-      <label for="subject">UTR Number:</label>
+      <label for="UTR">UTR Number:</label>
         <input type="text" name="utr" required />
 
       <button type="submit">Submit Question</button>
     </form>
-     <!-- ✅ This handles Thank You message -->
+    <!-- ✅ This handles Thank You message -->
       <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" 
               onload="if(submitted) document.getElementById('thanksMsg').style.display = 'block';"></iframe>
 
@@ -87,3 +81,5 @@
 
 </body>
 </html>
+    
+      
