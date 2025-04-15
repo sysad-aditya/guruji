@@ -26,7 +26,7 @@
     <section class="contact-section">
       <h3 class="contact-heading">Get In Touch</h3>
       
-      <form id="contact-form">
+      <form id="contactForm">
         <label for="name">Full Name:</label>
         <input type="text" id="name" name="name" required />
 
@@ -41,24 +41,40 @@
 
         <button type="submit">Send Message</button>
       </form>
+      <p id="status"></p>
+      
       <script>
-  const form = document.getElementById('contact-form');
-  form.addEventListener('submit', async (e) => {
+  const scriptURL = "https://script.google.com/macros/s/AKfycbzGHFkZOon6fPa2jMU_h69sauQTr06DDxwv7VVyYdf9y2ljBuaEcYO0FXJsIdZxfUd7/exec"; // Replace with your Script URL
+  const form = document.getElementById("contactForm");
+  const status = document.getElementById("status");
+
+  form.addEventListener("submit", (e) => {
     e.preventDefault();
-    
-    const formData = new FormData(form);
-    const data = Object.fromEntries(formData);
+    status.textContent = "Sending...";
 
-    await fetch('https://script.google.com/macros/s/AKfycbzGHFkZOon6fPa2jMU_h69sauQTr06DDxwv7VVyYdf9y2ljBuaEcYO0FXJsIdZxfUd7/exec', {
-      method: 'POST',
-      body: JSON.stringify(data),
+    const formData = {
+      name: form.name.value,
+      email: form.email.value,
+      subject: form.subject.value,
+      message: form.message.value
+    };
+
+    fetch(scriptURL, {
+      method: "POST",
+      body: JSON.stringify(formData),
       headers: {
-        'Content-Type': 'application/json'
+        "Content-Type": "application/json"
       }
+    })
+    .then(response => response.json())
+    .then(data => {
+      status.textContent = "Message sent successfully!";
+      form.reset();
+    })
+    .catch(error => {
+      console.error("Error!", error.message);
+      status.textContent = "Something went wrong.";
     });
-
-    alert('Message sent!');
-    form.reset();
   });
 </script>
     </section>
