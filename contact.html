@@ -26,49 +26,35 @@
         <section class="contact-section">
             <h3 class="contact-heading">Get In Touch</h3>
             <form id="contactForm">
-                <label for="name">Full Name:</label>
-                <input type="text" id="name" name="name" required />
+  <input type="text" name="name" placeholder="Name" required>
+  <input type="email" name="email" placeholder="Email" required>
+  <input type="text" name="subject" placeholder="Subject" required>
+  <textarea name="message" placeholder="Your Message" required></textarea>
+  <button type="submit">Send</button>
+</form>
+<p id="status"></p>
 
-                <label for="email">Email Address:</label>
-                <input type="email" id="email" name="email" required />
+<script>
+  const form = document.getElementById('contactForm');
+  const status = document.getElementById('status');
 
-                <label for="subject">Subject:</label>
-                <input type="text" id="subject" name="subject" required />
-
-                <label for="message">Message:</label>
-                <textarea id="message" name="message" rows="4" required></textarea>
-
-                <button type="submit">Send Message</button>
-            </form>
-            <p id="status"></p>
-
-            <script>
-  const scriptURL = "https://script.google.com/macros/s/AKfycbwuz4JZLyGtgGCyB8d2oB13uVddXwGJabh9IqQ7_VfPDd9pWMAgU9ymLbpNHu301vp4/exec";
-  const form = document.getElementById("contactForm");
-  const status = document.getElementById("status");
-
-  form.addEventListener("submit", function (e) {
+  form.addEventListener('submit', e => {
     e.preventDefault();
     status.textContent = "Sending...";
 
     const formData = new FormData(form);
 
-    fetch(scriptURL, {
-      method: "POST",
+    fetch('https://script.google.com/macros/s/PASTE-YOUR-URL/exec', {
+      method: 'POST',
       body: formData,
     })
-    .then(response => response.json())
+    .then(res => res.json())
     .then(data => {
-      if (data.success) {
-        status.textContent = "Message sent successfully!";
-        form.reset();
-      } else {
-        status.textContent = "Failed to send message.";
-        console.error("Server error:", data.error);
-      }
+      status.textContent = "Message sent successfully!";
+      form.reset();
     })
-    .catch(error => {
-      console.error("Fetch error!", error);
+    .catch(err => {
+      console.error("Fetch error:", err);
       status.textContent = "Something went wrong.";
     });
   });
