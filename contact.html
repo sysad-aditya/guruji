@@ -55,7 +55,8 @@
 
                     fetch(scriptURL, {
                         method: "POST",
-                        body: formData
+                        mode: "cors",
+                        body: new FormData(form),
                     })
                     .then(response => response.json())
                     .then(data => {
