@@ -1,29 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
+<meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Astrology Guru</title>
+  <title>Krishna Astrology</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header>
-    <h1>Astrology by Guru Ji</h1>
-    <p>Unlock your destiny with a personalized birth chart</p>
-  </header>
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="services.html">Services</a>
-    <a href="contact.html">Contact</a>
-    <a href="testimonials.html">Testimonials</a>
-    <a href="faq.html">FAQs</a>
-    <a href="privacy.html">Privacy Policy</a>
-  </nav>
+  
+<div id="header-placeholder"></div>
+
+<script>
+  fetch("header.html")
+    .then(res => res.text())
+    .then(data => document.getElementById("header-placeholder").innerHTML = data);
+</script>
 
   <div class="container">
-    <h2>Welcome to Astrology by Guru Ji</h2>
+    <h2>Welcome to Krishna Astrology</h2>
     <p>We provide detailed and personalized birth charts based on your birth details. Fill in the form below to get started.</p>
 
     <h3>Request Your Birth Chart</h3>
@@ -79,7 +75,7 @@
     <a href="privacy.html">Privacy Policy</a>
   </nav2>
   <footer>
-    <p>&copy; 2025 Astrology by Guru Ji. All rights reserved.</p>
+    <p>&copy; 2025 Krishna Astrology. All rights reserved.</p>
   </footer>
 </body>
 </html>
