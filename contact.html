@@ -1,93 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<div id="head-placeholder"></div>
+    <div id="head-placeholder"></div>
 
-<script>
-  fetch("head.html")
-    .then(res => res.text())
-    .then(data => document.getElementById("head-placeholder").innerHTML = data);
-</script>
+    <script>
+        fetch("head.html")
+            .then(res => res.text())
+            .then(data => document.getElementById("head-placeholder").innerHTML = data);
+    </script>
 </head>
 <body>
   
-<div id="header-placeholder"></div>
+    <div id="header-placeholder"></div>
 
-<script>
-  fetch("header.html")
-    .then(res => res.text())
-    .then(data => document.getElementById("header-placeholder").innerHTML = data);
-</script>
+    <script>
+        fetch("header.html")
+            .then(res => res.text())
+            .then(data => document.getElementById("header-placeholder").innerHTML = data);
+    </script>
 
-  <div class="container">
-    <h2>Contact Us</h2>
-    <p>If you have any questions or would like to learn more about our services, feel free to reach out to us. We are here to guide you on your spiritual journey.</p>
+    <div class="container">
+        <h2>Contact Us</h2>
+        <p>If you have any questions or would like to learn more about our services, feel free to reach out to us. We are here to guide you on your spiritual journey.</p>
 
-    <section class="contact-section">
-      <h3 class="contact-heading">Get In Touch</h3>
-      
-      <form id="contactForm">
-        <label for="name">Full Name:</label>
-        <input type="text" id="name" name="name" required />
+        <section class="contact-section">
+            <h3 class="contact-heading">Get In Touch</h3>
+            <form id="contactForm">
+                <label for="name">Full Name:</label>
+                <input type="text" id="name" name="name" required />
 
-        <label for="email">Email Address:</label>
-        <input type="email" id="email" name="email" required />
+                <label for="email">Email Address:</label>
+                <input type="email" id="email" name="email" required />
 
-        <label for="subject">Subject:</label>
-        <input type="text" id="subject" name="subject" required />
+                <label for="subject">Subject:</label>
+                <input type="text" id="subject" name="subject" required />
 
-        <label for="message">Message:</label>
-        <textarea id="message" name="message" rows="4" required></textarea>
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" rows="4" required></textarea>
 
-        <button type="submit">Send Message</button>
-      </form>
-      <p id="status"></p>
-      
-      <script>
-  const scriptURL = "https://script.google.com/macros/s/AKfycbzGHFkZOon6fPa2jMU_h69sauQTr06DDxwv7VVyYdf9y2ljBuaEcYO0FXJsIdZxfUd7/exec"; // Replace with your Script URL
-  const form = document.getElementById("contactForm");
-  const status = document.getElementById("status");
-document.getElementById("contactForm").addEventListener("submit", function (e) {
-  e.preventDefault();
-      status.textContent = "Sending...";
+                <button type="submit">Send Message</button>
+            </form>
+            <p id="status"></p>
 
-    const formData = new FormData(form);
+            <script>
+                const scriptURL = "https://script.google.com/macros/s/AKfycbzGHFkZOon6fPa2jMU_h69sauQTr06DDxwv7VVyYdf9y2ljBuaEcYO0FXJsIdZxfUd7/exec"; // Replace with your Script URL
+                const form = document.getElementById("contactForm");
+                const status = document.getElementById("status");
 
-    fetch(scriptURL, {
-      method: "POST",
-      body: formData      
-    })
-    .then(response => response.json())
-    .then(data => {
-      status.textContent = "Message sent successfully!";
-      form.reset();
-    })
-    .catch(error => {
-      console.error("Error!", error.message);
-      status.textContent = "Something went wrong.";
-    });
-  });
-</script>
-    </section>
+                form.addEventListener("submit", function (e) {
+                    e.preventDefault();
+                    status.textContent = "Sending...";
 
-    <section class="contact-section">
-      <h3 class="contact-heading">Our Contact Details</h3>
-      <p>If you'd prefer to reach us directly, here are our contact details:</p>
-      <ul>
-        <li><strong>Phone:</strong> +91 814 922 4462</li>
-        <li><strong>Email:</strong> <a href="mailto:sysad.snu@gmail.com">sysad.snu@gmail.com</a></li>
-        <li><strong>Address:</strong> Guru Astrology, 123 Main Road, Ranchi, Jharkhand, India</li>
-      </ul>
-    </section>
-</div>
+                    const formData = new FormData(form);
 
-<div id="bottom-placeholder"></div>
+                    fetch(scriptURL, {
+                        method: "POST",
+                        body: formData
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        status.textContent = "Message sent successfully!";
+                        form.reset();
+                    })
+                    .catch(error => {
+                        console.error("Error!", error.message);
+                        status.textContent = "Something went wrong.";
+                    });
+                });
+            </script>
+        </section>
 
-<script>
-  fetch("bottom.html")
-    .then(res => res.text())
-    .then(data => document.getElementById("bottom-placeholder").innerHTML = data);
-</script>
+        <section class="contact-section">
+            <h3 class="contact-heading">Our Contact Details</h3>
+            <p>If you'd prefer to reach us directly, here are our contact details:</p>
+            <ul>
+                <li><strong>Phone:</strong> +91 814 922 4462</li>
+                <li><strong>Email:</strong> <a href="mailto:sysad.snu@gmail.com">sysad.snu@gmail.com</a></li>
+                <li><strong>Address:</strong> Guru Astrology, 123 Main Road, Ranchi, Jharkhand, India</li>
+            </ul>
+        </section>
+    </div>
+
+    <div id="bottom-placeholder"></div>
+
+    <script>
+        fetch("bottom.html")
+            .then(res => res.text())
+            .then(data => document.getElementById("bottom-placeholder").innerHTML = data);
+    </script>
   
 </body>
 </html>
+
