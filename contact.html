@@ -26,7 +26,7 @@
     <section class="contact-section">
       <h3 class="contact-heading">Get In Touch</h3>
       
-      <form action="https://formspree.io/f/mpwpnrgo" method="post">
+      <form id="contact-form">
         <label for="name">Full Name:</label>
         <input type="text" id="name" name="name" required />
 
@@ -41,6 +41,26 @@
 
         <button type="submit">Send Message</button>
       </form>
+      <script>
+  const form = document.getElementById('contact-form');
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    
+    const formData = new FormData(form);
+    const data = Object.fromEntries(formData);
+
+    await fetch('https://script.google.com/macros/s/AKfycbzGHFkZOon6fPa2jMU_h69sauQTr06DDxwv7VVyYdf9y2ljBuaEcYO0FXJsIdZxfUd7/exec', {
+      method: 'POST',
+      body: JSON.stringify(data),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
+
+    alert('Message sent!');
+    form.reset();
+  });
+</script>
     </section>
 
     <section class="contact-section">
